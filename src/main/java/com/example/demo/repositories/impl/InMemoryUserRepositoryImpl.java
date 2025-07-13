@@ -15,7 +15,8 @@ public class InMemoryUserRepositoryImpl implements InMemoryUserRepository {
 
     @Override
     public List<User> findAll() {
-        return List.of();
+        // return List.of();
+        return users;
     }
 
     @Override
@@ -30,6 +31,13 @@ public class InMemoryUserRepositoryImpl implements InMemoryUserRepository {
         return users.stream().filter(user ->
                 user.getId().equals(id)
         ).findFirst();
+    }
+
+    @Override
+    public List<User> findByAge(int age) {
+        return users.stream().filter(user ->
+                user.getAge() >= age
+        ).toList();
     }
 
     @Override

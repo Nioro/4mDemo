@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.Console;
 import java.util.List;
 
 @RestController
@@ -28,7 +29,13 @@ public class UserController {
                         .build());
     }
 
-    @GetMapping("/by-name")
+    @GetMapping("/age")
+    public ResponseEntity<List<User>> getUserById(@RequestParam Integer age){
+        System.out.println(age);
+        return ResponseEntity.ok(userService.getUserByAge(age));
+    }
+
+    @GetMapping("/name")
     public ResponseEntity<User> getUserByName(@RequestParam String name){
         return userService.getUserByName(name)
                 .map(ResponseEntity::ok)

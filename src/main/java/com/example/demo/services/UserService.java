@@ -7,6 +7,7 @@ import java.util.Optional;
 
 public interface UserService {
     List<User> getAllUsers();
+    List<User> getUserByAge(Integer Age);
     Optional<User> getUserById(Long id);
     Optional<User> getUserByName(String name);
     User createUser(User user);
