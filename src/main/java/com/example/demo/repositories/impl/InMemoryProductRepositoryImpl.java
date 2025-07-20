@@ -2,12 +2,13 @@ package com.example.demo.repositories.impl;
 
 import com.example.demo.entity.Product;
 import com.example.demo.repositories.InMemoryProductRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-
+@Repository
 public class InMemoryProductRepositoryImpl implements InMemoryProductRepository {
     List<Product> products = new ArrayList<>();
     long id = 1L;

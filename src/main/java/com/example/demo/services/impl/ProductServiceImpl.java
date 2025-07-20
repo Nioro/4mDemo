@@ -3,6 +3,7 @@ package com.example.demo.services.impl;
 import com.example.demo.entity.Product;
 import com.example.demo.repositories.InMemoryProductRepository;
 import com.example.demo.services.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
