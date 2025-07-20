@@ -6,3 +6,5 @@ CREATE TABLE IF NOT EXISTS test.users(
     c_age INTEGER NOT NULL CHECK( c_age < 100),
     с_city VARCHAR(168)
 );
+
+

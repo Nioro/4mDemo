@@ -1,54 +1,52 @@
 package com.example.demo.services.impl;
 
 import com.example.demo.entity.Product;
-import com.example.demo.repositories.InMemoryProductRepository;
+import com.example.demo.repositories.ProductRepository;
 import com.example.demo.services.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
-    private final InMemoryProductRepository inMemoryProductRepository;
-
-    public ProductServiceImpl(InMemoryProductRepository inMemoryProductRepository) {
-        this.inMemoryProductRepository = inMemoryProductRepository;
-    }
+    private final ProductRepository productRepository;
 
     @Override
     public List<Product> getAllProducts() {
-        return inMemoryProductRepository.findAll();
+        return productRepository.findAll();
     }
 
     @Override
     public Optional<Product> getProductById(long id) {
-        return inMemoryProductRepository.findById(id);
+        return productRepository.findById(id);
     }
 
     @Override
     public List<Product> getProductByName(String name) {
-        return inMemoryProductRepository.findByName(name);
+        return null;
     }
 
     @Override
     public List<Product> getProductByPrice(int price) {
-        return inMemoryProductRepository.findByPrice(price);
+        return null;
     }
 
     @Override
     public List<Product> getProductByCategory(String category) {
-        return inMemoryProductRepository.findByCategory(category);
+        return null;
     }
 
     @Override
     public Product createProduct(Product product) {
-        return inMemoryProductRepository.save(product);
+        product.setId(null);
+        return productRepository.save(product);
     }
 
     @Override
     public void DeleteProductById(long id) {
-        inMemoryProductRepository.DeleteById(id);
+        // productRepository.DeleteById(id);
     }
 }
